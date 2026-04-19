@@ -703,7 +703,7 @@
     <div class="service-card">
       <div class="sc-num">01</div>
       <div class="sc-title">Clinical Content Review</div>
-      <p class="sc-body">Physician review of health articles, condition pages, treatment guides, and symptom explainers. Every claim verified against current medical literature.</p>
+      <p class="sc-body">Board-certified physician review of health articles, condition pages, treatment guides, and symptom explainers. Every claim verified against current medical literature.</p>
       <div class="sc-tags">
         <span class="sc-tag">Fact-Check</span>
         <span class="sc-tag">Citations</span>
@@ -725,4 +725,202 @@
     <div class="service-card">
       <div class="sc-num">03</div>
       <div class="sc-title">Legal-Medical Content</div>
-      <p class="sc-body">Spe
+      <p class="sc-body">Specialized review for mass tort, personal injury, and mesothelioma publishers where clinical precision directly supports legal claims and reader trust.</p>
+      <div class="sc-tags">
+        <span class="sc-tag">Mass Tort</span>
+        <span class="sc-tag">Asbestos</span>
+        <span class="sc-tag">PI Clients</span>
+      </div>
+      <span class="sc-arrow">↗</span>
+    </div>
+    <div class="service-card">
+      <div class="sc-num">04</div>
+      <div class="sc-title">Editorial Oversight</div>
+      <p class="sc-body">Ongoing physician editorial board services for publishers who need consistent, scalable clinical review across high-volume content operations.</p>
+      <div class="sc-tags">
+        <span class="sc-tag">Retainer</span>
+        <span class="sc-tag">Volume</span>
+        <span class="sc-tag">Consistency</span>
+      </div>
+      <span class="sc-arrow">↗</span>
+    </div>
+    <div class="service-card">
+      <div class="sc-num">05</div>
+      <div class="sc-title">Agency White-Label</div>
+      <p class="sc-body">Embed physician review into your agency's offering. We work behind the scenes so your clients get MD-stamped deliverables under your brand.</p>
+      <div class="sc-tags">
+        <span class="sc-tag">White-Label</span>
+        <span class="sc-tag">B2B</span>
+        <span class="sc-tag">Scalable</span>
+      </div>
+      <span class="sc-arrow">↗</span>
+    </div>
+    <div class="service-card">
+      <div class="sc-num">06</div>
+      <div class="sc-title">Content Audits</div>
+      <p class="sc-body">Full clinical integrity audits of existing content libraries — identifying inaccurate, outdated, or misleading health claims before they become ranking liabilities.</p>
+      <div class="sc-tags">
+        <span class="sc-tag">Audit</span>
+        <span class="sc-tag">Risk Review</span>
+        <span class="sc-tag">Remediation</span>
+      </div>
+      <span class="sc-arrow">↗</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO WE SERVE ── -->
+<section id="who" style="background: var(--fog); border-top: 1px solid var(--rule);">
+  <div class="who-grid">
+    <div>
+      <div class="section-label">Who We Serve</div>
+      <h2 class="section-h">Built for publishers and agencies that can't afford to get it wrong</h2>
+      <ul class="audience-list reveal">
+        <li class="audience-item">
+          <span class="ai-marker">I.</span>
+          <div class="ai-content">
+            <div class="ai-title">Health & Wellness Publishers</div>
+            <div class="ai-desc">Symptom sites, condition libraries, and wellness platforms where clinical accuracy determines both rankings and reader outcomes.</div>
+          </div>
+        </li>
+        <li class="audience-item">
+          <span class="ai-marker">II.</span>
+          <div class="ai-content">
+            <div class="ai-title">Legal Publishers & Law Firms</div>
+            <div class="ai-desc">Mass tort, mesothelioma, and personal injury sites where medical accuracy underpins the legal narrative and reader trust.</div>
+          </div>
+        </li>
+        <li class="audience-item">
+          <span class="ai-marker">III.</span>
+          <div class="ai-content">
+            <div class="ai-title">SEO & Content Agencies</div>
+            <div class="ai-desc">Boutique and mid-size agencies whose clients operate in YMYL verticals and need physician credentialing to compete at the top of SERP.</div>
+          </div>
+        </li>
+        <li class="audience-item">
+          <span class="ai-marker">IV.</span>
+          <div class="ai-content">
+            <div class="ai-title">Healthcare Marketing Firms</div>
+            <div class="ai-desc">Marketing agencies serving hospitals, specialty practices, and health systems that require content reviewed by someone with actual clinical training.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="who-pullquote">
+        <p class="pq-text">
+          Google doesn't want <em>content about medicine.</em><br>It wants content <em>from</em> medicine.
+        </p>
+        <div class="pq-attr">The E-E-A-T Imperative — YMYL Publishing, 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CREDIBILITY BAND ── -->
+<div class="cred-band reveal">
+  <div class="cred-item">
+    <div class="cred-num">10<span>-pt</span></div>
+    <div class="cred-label">Clinical Integrity Protocol</div>
+  </div>
+  <div class="cred-divider"></div>
+  <div class="cred-item">
+    <div class="cred-num">M<span>.</span>D<span>.</span></div>
+    <div class="cred-label">Physician-Led Review</div>
+  </div>
+  <div class="cred-divider"></div>
+  <div class="cred-item">
+    <div class="cred-num">YMYL</div>
+    <div class="cred-label">Highest-Risk Verticals</div>
+  </div>
+  <div class="cred-divider"></div>
+  <div class="cred-item">
+    <div class="cred-num">48<span>hr</span></div>
+    <div class="cred-label">Standard Turnaround</div>
+  </div>
+  <div class="cred-divider"></div>
+  <div class="cred-item">
+    <div class="cred-num">100<span>%</span></div>
+    <div class="cred-label">Clinician Reviewed</div>
+  </div>
+</div>
+
+<!-- ── PROCESS ── -->
+<section id="process" class="process-bg">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-h">From brief to board-certified in four steps</h2>
+  <p class="section-sub">A streamlined process built for publishers and agencies with real deadlines.</p>
+
+  <div class="process-steps reveal">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon">📋</div>
+      <div class="step-title">Submit Your Content</div>
+      <p class="step-body">Share the article, brief, or existing page. We accept drafts, published content, and content libraries for bulk audits.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon">🔬</div>
+      <div class="step-title">Physician Review</div>
+      <p class="step-body">A board-certified physician applies our 10-Point Clinical Integrity Protocol — checking every claim, citation, and recommendation.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon">📝</div>
+      <div class="step-title">Annotated Deliverable</div>
+      <p class="step-body">You receive a fully annotated document with corrections, citation upgrades, and a clinical certification statement ready to publish.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-icon">✓</div>
+      <div class="step-title">Publish with Confidence</div>
+      <p class="step-body">Go live knowing your content carries the weight of genuine clinical oversight — exactly what Google's Quality Raters are evaluating.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="contact" class="cta-section">
+  <div class="section-label">Get Started</div>
+  <h2 class="cta-h">Your content deserves a<br><em>physician's signature.</em></h2>
+  <p class="cta-sub">Book a free 20-minute discovery call. No pitch decks — just a conversation about your content and what clinical review could do for it.</p>
+  <div class="cta-actions">
+    <a href="https://calendly.com" class="btn-cta-primary">Book a Discovery Call</a>
+    <a href="mailto:hello@worldborne.com" class="btn-cta-ghost">Or email us directly →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Worldborne<span>.</span></div>
+  <div class="footer-copy">© 2025 Worldborne Medical. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#">Services</a>
+    <a href="#">Process</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // Smooth nav shrink on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.padding = window.scrollY > 60 ? '14px 56px' : '22px 56px';
+    if (window.innerWidth < 900) nav.style.padding = '14px 24px';
+  });
+</script>
+
+</body>
+</html>
