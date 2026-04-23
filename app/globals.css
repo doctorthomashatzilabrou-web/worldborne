@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --background: #f1f5f9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .bento-card {
+    @apply bg-white rounded-2xl border border-slate-200 overflow-hidden;
+  }
+  .bento-card-dark {
+    @apply bg-slate-900 rounded-2xl overflow-hidden;
+  }
+}
