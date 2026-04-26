@@ -72,7 +72,7 @@ const SERVICES = [
   {
     tier: 'Top 10',
     tagline: 'Protect your best performers',
-    description: 'Your highest-traffic pages reviewed by a board-certified MD — upgrade the content Google scrutinises most.',
+    description: 'Your highest-traffic pages reviewed by an MD — upgrade the content Google scrutinises most.',
     price: '$3,000',
     unit: 'one-time',
     volume: '10 articles',
@@ -112,7 +112,7 @@ const STATS = [
 ]
 
 const CREDENTIALS = [
-  { icon: Award, label: 'Board-Certified MD' },
+  { icon: Award, label: 'US-trained MD' },
   { icon: Search, label: 'YMYL / E-E-A-T Specialist' },
   { icon: BookOpen, label: 'Health Publishing Expert' },
   { icon: TrendingUp, label: 'Medical SEO Strategist' },
@@ -188,11 +188,11 @@ export default function Home() {
               <span className="text-blue-400">clinical standard.</span>
             </h1>
             <p className="text-slate-400 text-base leading-relaxed max-w-sm">
-              Worldborne Medical embeds board-certified physician oversight into your content pipeline — protecting your audience, your authority, and your search rankings in YMYL verticals.
+              Worldborne Medical embeds physician oversight into your content pipeline — protecting your audience, your authority, and your search rankings in YMYL verticals.
             </p>
           </div>
           <div className="flex flex-wrap gap-2 mt-8">
-            {['E-E-A-T', 'YMYL', 'MD-Reviewed', '48hr Turnaround', 'Board-Certified'].map(tag => (
+            {['E-E-A-T', 'YMYL', 'MD-Reviewed', '48hr Turnaround', 'Clinically Verified'].map(tag => (
               <span key={tag} className="text-xs text-slate-400 border border-slate-700 rounded-full px-3 py-1 hover:border-blue-500 hover:text-blue-400 transition-colors cursor-default">
                 {tag}
               </span>
@@ -216,7 +216,7 @@ export default function Home() {
           <div>
             <p className="text-slate-900 font-bold text-xl tracking-tight">Dr. Thomas Hatzilabrou</p>
             <p className="text-blue-600 text-sm font-semibold mt-0.5">MD · Founder, Worldborne Medical</p>
-            <p className="text-slate-500 text-xs mt-1">Board-Certified Physician</p>
+            <p className="text-slate-500 text-xs mt-1">US-trained Physician</p>
           </div>
           <div className="grid grid-cols-2 gap-2 w-full max-w-xs">
             {CREDENTIALS.map(({ icon: Icon, label }) => (
@@ -266,7 +266,7 @@ export default function Home() {
         <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-7 flex flex-col justify-center gap-4">
           <p className="text-slate-400 text-xs font-bold tracking-widest uppercase">About Dr. Hatzilabrou</p>
           <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-            Dr. Thomas Hatzilabrou is a board-certified physician with over a decade of clinical practice and a specialisation in health publishing, medical SEO, and YMYL content strategy. After observing the growing gap between what digital publishers produce and what clinical accuracy demands, he founded Worldborne Medical to give health, legal, and agency publishers direct access to credentialed physician oversight — the kind of genuine expertise Google's E-E-A-T guidelines were written to reward.
+            Dr. Thomas Hatzilabrou, M.D., is a physician with over a decade of clinical practice and a specialisation in health publishing, medical SEO, and YMYL content strategy. After observing the growing gap between what digital publishers produce and what clinical accuracy demands, he founded Worldborne Medical to give health, legal, and agency publishers direct access to physician oversight — the kind of genuine expertise Google's E-E-A-T guidelines were written to reward.
           </p>
           <p className="text-slate-500 text-sm leading-relaxed">
             His reviews combine current medical literature, evidence-based practice, and a clear understanding of how search quality raters evaluate YMYL content — delivering annotated deliverables that are both clinically correct and search-ready.
@@ -302,7 +302,7 @@ export default function Home() {
               <span className="text-amber-300">Audit</span>
             </h2>
             <p className="text-blue-200 text-sm mt-2.5 leading-relaxed max-w-sm">
-              Submit one article for a complimentary physician review. See exactly what board-certified clinical oversight looks like before you commit to a paid tier.
+              Submit one article for a complimentary physician review. See exactly what M.D. clinical oversight looks like before you commit to a paid tier.
             </p>
           </div>
 
