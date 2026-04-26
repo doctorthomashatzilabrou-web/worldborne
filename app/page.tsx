@@ -216,7 +216,7 @@ export default function Home() {
           <div>
             <p className="text-slate-900 font-bold text-xl tracking-tight">Dr. Thomas Hatzilabrou</p>
             <p className="text-blue-600 text-sm font-semibold mt-0.5">MD · Founder, Worldborne Medical</p>
-            <p className="text-slate-500 text-xs mt-1">US-trained Physician</p>
+            <p className="text-slate-500 text-xs mt-1">U.S.-trained Medical Doctor</p>
           </div>
           <div className="grid grid-cols-2 gap-2 w-full max-w-xs">
             {CREDENTIALS.map(({ icon: Icon, label }) => (
@@ -273,7 +273,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200">
             {[
-              { icon: Shield, text: 'Board Certified' },
+              { icon: Shield, text: 'U.S. Medical Doctor' },
               { icon: TrendingUp, text: 'YMYL Authority' },
               { icon: Clock, text: '10+ Yrs Practice' },
               { icon: BookOpen, text: 'Health Publishing' },
