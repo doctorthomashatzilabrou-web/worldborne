@@ -1,235 +1,91 @@
 # Worldborne Medical — Landing Page
 
-Physician-led clinical content review service for Dr. Thomas Hatzilabrou. Bento-box style landing page built with Next.js 14, Tailwind CSS, and Lucide icons.
+Single-page marketing site for Dr. Thomas Hatzilabrou's physician-led clinical content review service. Hosted on GitHub Pages at **www.worldborne.com**.
 
 ## Stack
 
+Static HTML, vanilla CSS, one tiny inline IntersectionObserver script. No build step, no framework, no dependencies.
+
 | Layer | Technology |
 |-------|-----------|
-| Framework | Next.js 14 (App Router) |
-| Styling | Tailwind CSS 3 |
-| Icons | lucide-react |
-| Language | TypeScript |
-| Rendering | Static (SSG) + Edge API route |
+| Markup | `index.html` (single file) |
+| Styling | Inline `<style>` block — CSS custom properties + media query |
+| Fonts | Google Fonts: Cormorant Garamond (serif), DM Sans (sans) |
+| Hosting | GitHub Pages, custom domain via `CNAME` |
+| Lead capture | `mailto:` + LinkedIn — no form processing |
 
-## Project Structure
+## File layout
 
 ```
 worldborne/
-├── app/
-│   ├── api/
-│   │   └── contact/
-│   │       └── route.ts     # Edge API route — contact form handler
-│   ├── globals.css           # Tailwind directives + Inter font import
-│   ├── layout.tsx            # Root layout with metadata
-│   └── page.tsx              # Full landing page (single component)
-├── public/                   # Static assets (add profile photo here)
-├── CLAUDE.md                 # This file
-├── next.config.js
-├── tailwind.config.ts
-├── postcss.config.js
-├── tsconfig.json
-└── package.json
+├── index.html      # Entire site
+├── logo.png        # Nav + footer logo
+├── profile.png     # Hero portrait
+├── CNAME           # www.worldborne.com
+├── .gitignore
+└── CLAUDE.md       # This file
 ```
 
-## Running Locally
+## Page sections (in order)
+
+1. **Nav** — fixed, blurred backdrop. Links to each section + "Book a Call" CTA.
+2. **Hero** — headline, value prop, CTA, portrait card with stats.
+3. **Problem band** — single editorial sentence on YMYL / E-E-A-T pressure.
+4. **`#services`** — three service cards: Clinical Content Review, Medical SEO Strategy, Legal-Medical Content.
+5. **`#who`** — Who We Serve: 2×2 grid of audience segments.
+6. **`#process`** — Process: four-step engagement on a dark background.
+7. **`#contact`** — Email + LinkedIn cards. Direct outreach, no form.
+8. **Footer** — tagline, brand mark, nav repeat, copyright.
+
+## Working locally
+
+No tooling. Open `index.html` in a browser, or:
 
 ```bash
-npm install
-npm run dev       # → http://localhost:3000
-npm run build     # Production build (outputs static + edge routes)
-npm run start     # Serve production build
+python -m http.server 8000   # → http://localhost:8000
 ```
 
-## Page Layout (Bento Box)
+## Design tokens
 
-Responsive 2-column CSS Grid that stacks to 1 column on mobile (`< md` breakpoint).
+Defined as CSS custom properties on `:root` at the top of the `<style>` block:
 
-```
-┌──────────────────────────────────────────────┐
-│  HEADER  — Globe+cross SVG logo              │
-│            "Worldborne Medical" wordmark      │
-│            "Get Free Audit" CTA button        │
-├─────────────────────┬────────────────────────┤
-│  HERO LEFT          │  HERO RIGHT            │
-│  "What We Do"       │  "TH" initials avatar  │
-│  Value prop copy    │  Dr. Thomas Hatzilabrou│
-│  Tag pills          │  Credential badge grid │
-├─────────────────────┴────────────────────────┤
-│  STATS STRIP (full-width)                    │
-│  500+ Articles | 48hr Turnaround | 100% MD   │
-│  Certified | 10+ Yrs Practice                │
-├─────────────────────┬────────────────────────┤
-│  PORTFOLIO LINK     │  BIO SUMMARY           │
-│  Arrow icon CTA     │  Bio text for Dr. TH   │
-│                     │  Credential tags        │
-├─────────────────────┼────────────────────────┤
-│  LEAD GEN           │  SERVICES              │
-│  "Free Clinical     │  Pilot       — $900    │
-│   Audit" hook       │  Top 10      — $3,000  │
-│  Contact form →     │  Top 25★     — $7,500  │
-│  contact@worldborne │  Retainer    — $15,000 │
-├─────────────────────┴────────────────────────┤
-│  FOOTER  — Logo · Copyright · LinkedIn       │
-└──────────────────────────────────────────────┘
-```
+| Token | Value | Use |
+|-------|-------|-----|
+| `--ink` | `#0d1117` | Primary text, dark sections |
+| `--paper` | `#faf8f4` | Default page background |
+| `--fog` | `#f4f1ec` | Alternating section background |
+| `--gold` | `#b8955a` | Accent, italic emphasis, links |
+| `--gold-lt` | `#d4b07a` | Hover, gradient stops |
+| `--muted` | `#6b6560` | Secondary copy |
+| `--rule` | `rgba(184,149,90,0.25)` | Borders, dividers |
+| `--serif` | Cormorant Garamond | Headings, italic emphasis |
+| `--sans` | DM Sans | Body, labels |
 
-## Customisation Checklist
+## Conventions
 
-### Replace placeholders
-
-- [ ] **Profile photo** — In `app/page.tsx`, find the `"TH"` initials block (Hero Right section)
-  and replace with:
-  ```tsx
-  import Image from 'next/image'
-  // … inside the card:
-  <Image
-    src="/photo.jpg"
-    alt="Dr. Thomas Hatzilabrou"
-    width={160}
-    height={160}
-    className="rounded-2xl object-cover shadow-lg"
-    priority
-  />
-  ```
-  Then drop `photo.jpg` into `/public/`.
-
-- [ ] **Bio text** — Edit the two `<p>` paragraphs in the `BIO` section of `app/page.tsx`.
-
-- [ ] **Portfolio link** — Update the `href="#"` on the Portfolio card (`4a. PORTFOLIO LINK`).
-
-- [ ] **Stats** — Adjust `STATS` array values at the top of `app/page.tsx` once real numbers are confirmed.
-
----
-
-### Wire up the contact form email
-
-The form POSTs JSON to `/api/contact`. The route logs requests and returns `{ success: true }`.
-**Wire it to send real emails in `app/api/contact/route.ts`.**
-
-#### Option A — Resend (recommended)
-
-```bash
-npm install resend
-```
-
-Add to `.env.local`:
-```
-RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-Uncomment the Resend block in `route.ts`:
-```ts
-import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
-
-await resend.emails.send({
-  from: 'no-reply@worldborne.com',   // must be a Resend-verified domain
-  to:   'contact@worldborne.com',
-  replyTo: email,
-  subject: `Free Audit Request — ${name}`,
-  text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`,
-})
-```
-
-#### Option B — Formspree (zero-backend, no server needed)
-
-1. Create a free form at formspree.io → copy your form ID (e.g. `xabcdefg`).
-2. In `app/page.tsx`, change the fetch call to:
-   ```ts
-   const res = await fetch('https://formspree.io/f/xabcdefg', {
-     method: 'POST',
-     headers: { 'Content-Type': 'application/json' },
-     body: JSON.stringify(formData),
-   })
-   ```
-3. Delete `app/api/contact/route.ts` — it's no longer needed.
-
-#### Option C — Nodemailer (self-hosted SMTP)
-
-```bash
-npm install nodemailer @types/nodemailer
-```
-
-Add to `.env.local`:
-```
-SMTP_HOST=smtp.yourprovider.com
-SMTP_PORT=587
-SMTP_USER=your@email.com
-SMTP_PASS=yourpassword
-```
-
-Note: remove `export const runtime = 'edge'` from `route.ts` when using Node.js APIs.
-
----
-
-## Design Tokens (Tailwind)
-
-| Purpose | Class |
-|---------|-------|
-| Page background | `bg-slate-100` |
-| Card background | `bg-white` |
-| Dark card | `bg-slate-900` |
-| Primary blue | `bg-blue-600` / `text-blue-600` |
-| CTA accent | `bg-amber-400` / `text-amber-900` |
-| Muted text | `text-slate-500` |
-| Body text | `text-slate-700` |
-| Border | `border-slate-200` |
-
----
-
-## Logo
-
-The logo is an inline SVG (`<WorldborneLogo />` component at the top of `app/page.tsx`). It depicts a globe (latitude/longitude lines) with a medical cross overlaid — symbolising worldwide clinical oversight.
-
-To swap in a custom logo file, replace `<WorldborneLogo />` with:
-```tsx
-import Image from 'next/image'
-<Image src="/logo.svg" alt="Worldborne Medical" width={38} height={38} />
-```
-
----
-
-## Pricing (current)
-
-| Tier | Articles | Price |
-|------|----------|-------|
-| Pilot | 3 articles | $900 one-time |
-| Top 10 | 10 articles | $3,000 one-time |
-| Top 25 ★ | 25 articles | $7,500 one-time |
-| Monthly Retainer | 50+/month | $15,000/month |
-
-To update pricing, edit the `SERVICES` array at the top of `app/page.tsx`.
-
----
+- Section padding: `110px 56px` desktop, `72px 24px` ≤ 900px.
+- Italic emphasis (`<em>`) renders gold serif everywhere — used for the editorial highlight in headings and the tagline.
+- The `.reveal` class hides elements until they scroll into view; an IntersectionObserver at the bottom of the body adds `.visible` to fade them in.
+- Backgrounds alternate paper → fog → ink across sections to give visual rhythm.
 
 ## Deployment
 
-The project outputs a fully static site with one Edge API route (`/api/contact`).
+Push to `main`. GitHub Pages serves the repo root. The `CNAME` file points to `www.worldborne.com`.
 
-### Vercel (recommended — zero config)
+There is **no build step**. Whatever is in `index.html` is what ships.
 
-1. Push to GitHub
-2. Import repo at vercel.com
-3. Add `RESEND_API_KEY` (or other email env vars) in Project Settings → Environment Variables
-4. Deploy
+## Editing checklist
 
-### Netlify
+When changing content:
 
-Same as Vercel. Use "Next.js" as the build preset.
+- **Copy / pricing / services** — edit `index.html` directly. Section IDs match nav anchors.
+- **Bio / credentials** — these currently live in narrative form in the hero and problem band. If a separate "About" section is added, harvest the longer bio from this file's git history (the previous Next.js `app/page.tsx` had a fuller version).
+- **Logo / portrait** — replace `logo.png` and `profile.png` in the repo root.
+- **Contact** — `mailto:contact@worldborne.com` and `https://www.linkedin.com/company/worldborne/` are hard-coded in the `#contact` section.
+- **Domain** — change `CNAME` and update DNS.
 
-### GitHub Pages (static export only — disables contact form API)
+## What this site is not
 
-```js
-// next.config.js
-const nextConfig = { output: 'export' }
-module.exports = nextConfig
-```
-
-```bash
-npm run build   # outputs to /out
-# push /out to gh-pages branch
-```
-
-Note: the contact form will fall back to the `mailto:contact@worldborne.com` link when the API route is unavailable.
+- Not a lead-gen funnel — most clients come via direct outreach. The contact section is a credibility touchpoint, not a conversion form.
+- Not a CMS — copy changes are git commits.
+- Not Next.js — there used to be a Next.js scaffold in this repo. It was removed. Don't reintroduce a framework unless the contact form needs server-side processing.

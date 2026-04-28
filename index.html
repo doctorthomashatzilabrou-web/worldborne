@@ -416,6 +416,202 @@
     transform: translateY(0);
   }
 
+  /* ── WHO WE SERVE ── */
+  .who-section { background: var(--fog); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+  }
+  .who-card {
+    background: var(--fog);
+    padding: 40px 36px;
+    transition: background 0.25s;
+  }
+  .who-card:hover { background: var(--paper); }
+  .who-card-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .who-card-title {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .who-card-body {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── PROCESS ── */
+  .process-section { background: var(--ink); color: var(--paper); }
+  .process-section .section-h { color: var(--paper); }
+  .process-section .section-sub { color: rgba(244,241,236,0.55); }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    margin-top: 12px;
+  }
+  .process-step {
+    position: relative;
+    padding-top: 32px;
+  }
+  .process-step::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 24px;
+    height: 1px;
+    background: rgba(184,149,90,0.35);
+  }
+  .process-step-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .process-step-title {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: var(--paper);
+  }
+  .process-step-body {
+    font-size: 0.88rem;
+    color: rgba(244,241,236,0.6);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section { background: var(--paper); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .contact-h {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 3.2vw, 3rem);
+    line-height: 1.18;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  .contact-h em { color: var(--gold); font-style: italic; }
+  .contact-body {
+    font-size: 1.02rem;
+    color: var(--muted);
+    margin-bottom: 36px;
+    max-width: 460px;
+  }
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .contact-channel {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 28px;
+    background: var(--fog);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s, background 0.2s;
+  }
+  .contact-channel:hover {
+    border-color: var(--gold);
+    background: var(--paper);
+    transform: translateY(-1px);
+  }
+  .contact-channel:hover .contact-channel-arrow { transform: translate(4px, -4px); }
+  .contact-channel-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .contact-channel-value {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .contact-channel-arrow {
+    font-size: 1.1rem;
+    color: var(--gold);
+    transition: transform 0.2s;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(244,241,236,0.5);
+    padding: 80px 56px 40px;
+  }
+  .footer-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    color: var(--paper);
+    max-width: 620px;
+    line-height: 1.4;
+    margin-bottom: 56px;
+  }
+  .footer-tagline em { color: var(--gold); font-style: italic; }
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(244,241,236,0.08);
+    padding-top: 28px;
+  }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .footer-brand img { height: 32px; width: auto; }
+  .footer-brand-text {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    color: var(--paper);
+    font-weight: 500;
+  }
+  .footer-brand-text em { color: var(--gold); font-style: normal; }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(244,241,236,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-meta {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 18px 24px; }
@@ -423,7 +619,13 @@
     .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
     section, .problem-band { padding: 72px 24px; }
     .services-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-channel { grid-template-columns: 90px 1fr auto; padding: 18px 22px; gap: 14px; }
     .portfolio-box { margin: 0 auto; }
+    footer { padding: 60px 24px 32px; }
+    .footer-row { flex-direction: column; align-items: flex-start; gap: 24px; }
   }
 </style>
 </head>
@@ -527,6 +729,118 @@
     </div>
   </div>
 </section>
+
+<section id="who" class="who-section">
+  <div class="section-label">Who We Serve</div>
+  <h2 class="section-h">Built for publishers operating in regulated, high-stakes verticals.</h2>
+  <p class="section-sub">If your content sits inside Google's Your-Money-Your-Life remit — or could expose your readers to clinical risk — physician oversight is no longer optional.</p>
+
+  <div class="who-grid reveal">
+    <div class="who-card">
+      <div class="who-card-num">i.</div>
+      <div class="who-card-title">Health &amp; Wellness Publishers</div>
+      <p class="who-card-body">Digital health magazines, condition-explainer sites, and wellness brands competing for YMYL keywords against the established medical authorities.</p>
+    </div>
+    <div class="who-card">
+      <div class="who-card-num">ii.</div>
+      <div class="who-card-title">Medical SEO Agencies</div>
+      <p class="who-card-body">Agencies serving healthcare clients who need a credentialed physician name on the deliverables they produce — white-label friendly.</p>
+    </div>
+    <div class="who-card">
+      <div class="who-card-num">iii.</div>
+      <div class="who-card-title">Personal-Injury &amp; Medical-Legal Firms</div>
+      <p class="who-card-body">Law firm content libraries where clinical claims must be defensible, evidence-based, and free of misleading medical statements.</p>
+    </div>
+    <div class="who-card">
+      <div class="who-card-num">iv.</div>
+      <div class="who-card-title">Telehealth &amp; Digital Health Brands</div>
+      <p class="who-card-body">Patient-facing condition libraries, treatment guides, and onboarding flows where editorial accuracy directly affects clinical outcomes and trust.</p>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process-section">
+  <div class="section-label">Process</div>
+  <h2 class="section-h">A four-step engagement, transparent end to end.</h2>
+  <p class="section-sub">Every review is signed by a U.S.-trained physician. Every claim checked against current medical literature. No black-box deliverables.</p>
+
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="process-step-num">i. Brief</div>
+      <div class="process-step-title">Scope &amp; intake</div>
+      <p class="process-step-body">A brief call to understand your audience, content cadence, and the YMYL territory you publish in.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">ii. Review</div>
+      <div class="process-step-title">Physician fact-check</div>
+      <p class="process-step-body">Each article read by an MD against current clinical literature, guidelines, and peer-reviewed sources.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">iii. Annotate</div>
+      <div class="process-step-title">Line-level corrections</div>
+      <p class="process-step-body">In-line edits, citations, and clarifying notes — delivered in a format your editorial team can apply directly.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">iv. Deliver</div>
+      <div class="process-step-title">Signed &amp; certified</div>
+      <p class="process-step-body">Final deliverable includes physician sign-off and a clinical accuracy certificate suitable for E-E-A-T signalling.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label">Contact</div>
+      <h2 class="contact-h">Most engagements begin with a <em>brief call.</em></h2>
+      <p class="contact-body">Reach out directly. New clients are taken on a rolling basis — a quick exchange is usually enough to scope a pilot or an ongoing retainer.</p>
+    </div>
+
+    <div class="contact-channels">
+      <a href="mailto:contact@worldborne.com" class="contact-channel">
+        <div class="contact-channel-label">Email</div>
+        <div class="contact-channel-value">contact@worldborne.com</div>
+        <span class="contact-channel-arrow">↗</span>
+      </a>
+      <a href="https://www.linkedin.com/company/worldborne/" target="_blank" rel="noopener noreferrer" class="contact-channel">
+        <div class="contact-channel-label">LinkedIn</div>
+        <div class="contact-channel-value">/company/worldborne</div>
+        <span class="contact-channel-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-tagline">
+    Medical content held to a <em>clinical standard.</em>
+  </p>
+  <div class="footer-row">
+    <a href="#" class="footer-brand">
+      <img src="logo.png" alt="Worldborne Logo">
+      <span class="footer-brand-text">Worldborne<em>.</em></span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#who">Who We Serve</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="footer-meta">© 2026 Worldborne Medical</span>
+  </div>
+</footer>
+
+<script>
+  var __reveal = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        __reveal.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (el) { __reveal.observe(el); });
+</script>
 
 </body>
 </html>
