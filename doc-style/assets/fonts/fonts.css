@@ -1,0 +1,16 @@
+/* Vendored Google Fonts (latin subset, variable). Self-hosted for offline, pixel-stable PDF output. */
+@font-face{
+  font-family:'Cormorant Garamond';
+  font-style:normal; font-weight:300 700; font-display:swap;
+  src:url(./CormorantGaramond.woff2) format('woff2');
+}
+@font-face{
+  font-family:'Cormorant Garamond';
+  font-style:italic; font-weight:300 700; font-display:swap;
+  src:url(./CormorantGaramond-Italic.woff2) format('woff2');
+}
+@font-face{
+  font-family:'DM Sans';
+  font-style:normal; font-weight:100 1000; font-display:swap;
+  src:url(./DMSans.woff2) format('woff2');
+}
