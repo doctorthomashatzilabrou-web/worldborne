@@ -204,28 +204,6 @@
     z-index: 2;
   }
 
-  /* monogram placeholder — swap for an <img class="bio-portrait"> when a photo is added */
-  .bio-monogram {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    border-radius: 4px;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(184,149,90,0.18), transparent 60%),
-      var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 24px 48px rgba(13,17,23,0.14);
-    border: 1px solid var(--rule);
-  }
-  .bio-monogram span {
-    font-family: var(--serif);
-    font-size: 7rem;
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-  }
-
   .bio-role {
     font-size: 0.72rem;
     letter-spacing: 0.2em;
@@ -455,34 +433,32 @@
     </div>
   </article>
 
-  <!-- ── SARAH ──
-       Placeholder photo uses a gold monogram. To add a real photo:
-       1. Drop the image in the repo root as  sarah.png
-       2. Replace the <div class="bio-monogram">…</div> below with:
-          <img src="../sarah.png" alt="Sarah" class="bio-portrait">
-       Edit the name, title, and copy freely — this draft is intentionally editable. -->
+  <!-- ── SARAH ── -->
   <article class="bio-person reveal">
     <div class="bio-visual">
-      <div class="bio-monogram"><span>S</span></div>
+      <img src="../sarah.png" alt="Sarah, Head of Business Development" class="bio-portrait">
     </div>
     <div class="bio-text">
-      <div class="bio-role">Editorial &amp; Content Lead</div>
+      <div class="bio-role">Head of Business Development</div>
       <h2 class="bio-name">Sarah</h2>
-      <div class="bio-title">Editorial operations &amp; medical content strategy</div>
+      <div class="bio-title">Operations, quality &amp; risk across regulated industries</div>
       <p class="bio-body">
-        Sarah leads editorial operations at Worldborne, turning physician review into publication-ready content. She partners with clients to shape topical architecture, tighten medical prose without losing its nuance, and keep every engagement moving cleanly from brief to sign-off.
+        Sarah is Head of Business Development at Worldborne, where she connects the firm's clinical expertise to the organisations that need it most. She brings a rare operator's breadth — a career spent building, refining, and de-risking how complex, highly regulated businesses actually run, from the front line to the boardroom.
       </p>
       <p class="bio-body">
-        With a background in long-form health and science editing, she makes sure clinical accuracy and reader clarity never trade off against each other — so the finished piece reads as well as it holds up. She is the throughline that keeps deliverables consistent, on schedule, and genuinely useful to the teams who publish them.
+        Her background spans operations, training, quality management, risk analysis, and compliance across some of the most demanding sectors there are — insurance, banking, healthcare, logistics, manufacturing, and R&amp;D. That range means she understands the pressures Worldborne's clients face first-hand: where accuracy is non-negotiable, where every process has to withstand scrutiny, and where a genuinely trusted partner changes the outcome.
+      </p>
+      <p class="bio-body">
+        She's the person who turns a first conversation into a lasting partnership — scoping engagements with precision, safeguarding quality at every step, and making sure each client relationship is built to hold up under real-world pressure.
       </p>
       <div class="bio-skills-label">Areas of expertise</div>
       <div class="bio-tags">
-        <span class="bio-tag">Content Strategy</span>
-        <span class="bio-tag">Medical Copyediting</span>
-        <span class="bio-tag">Editorial Workflow</span>
-        <span class="bio-tag">SEO Structure</span>
-        <span class="bio-tag">Client Delivery</span>
-        <span class="bio-tag">Quality Assurance</span>
+        <span class="bio-tag">Business Development</span>
+        <span class="bio-tag">Operations</span>
+        <span class="bio-tag">Quality Management</span>
+        <span class="bio-tag">Risk Analysis</span>
+        <span class="bio-tag">Compliance</span>
+        <span class="bio-tag">Training &amp; Enablement</span>
       </div>
     </div>
   </article>
