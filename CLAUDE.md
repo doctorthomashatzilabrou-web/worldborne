@@ -18,10 +18,11 @@ Static HTML, vanilla CSS, one tiny inline IntersectionObserver script. No build 
 
 ```
 worldborne/
-├── index.html      # Entire site
+├── index.html      # Entire site (markup + inline <style> + inline <script>)
 ├── logo.png        # Nav + footer logo
 ├── profile.png     # Hero portrait
 ├── CNAME           # www.worldborne.com
+├── netlify.toml    # No-op build config (guards against a stale Next.js build)
 ├── .gitignore
 └── CLAUDE.md       # This file
 ```
@@ -67,12 +68,17 @@ Defined as CSS custom properties on `:root` at the top of the `<style>` block:
 - Italic emphasis (`<em>`) renders gold serif everywhere — used for the editorial highlight in headings and the tagline.
 - The `.reveal` class hides elements until they scroll into view; an IntersectionObserver at the bottom of the body adds `.visible` to fade them in.
 - Backgrounds alternate paper → fog → ink across sections to give visual rhythm.
+- The hero mounts on load via CSS `@keyframes` (`fadeUp` / `fadeIn`, staggered by `animation-delay`) — this is separate from the scroll-triggered `.reveal` mechanism used below the fold.
+- A fixed full-viewport `body::before` paints a subtle SVG `feTurbulence` grain over the whole page (`z-index: 9999`, `pointer-events: none`). Keep any new interactive layer below it or it will be click-blocked.
+- Responsive collapse at ≤ 900px: nav links hide, hero and all multi-column grids stack to one column, process drops to 2×2.
 
 ## Deployment
 
 Push to `main`. GitHub Pages serves the repo root. The `CNAME` file points to `www.worldborne.com`.
 
 There is **no build step**. Whatever is in `index.html` is what ships.
+
+`netlify.toml` exists only as a safety net: the repo previously carried a Next.js scaffold, and the file forces any Netlify build to a no-op (`command = "echo ..."`, `publish = "."`) so a stale framework config can't produce a broken deploy. GitHub Pages remains the canonical host — don't wire up a real build here without a deliberate hosting change.
 
 ## Editing checklist
 
