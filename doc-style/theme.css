@@ -183,3 +183,22 @@ tbody tr.total td.rec{ background:#1a232e; }
 .band-dark h1 + p{ color:#c9c2b7; border-color:var(--gold); }
 
 .page-break{ break-before:page; }
+
+/* ---- compact density (front matter: density: compact) ----- */
+/* Tightens type and spacing to fit long one-pagers (agendas, briefs)
+   onto fewer pages without changing the visual language. */
+.doc.compact{ font-size:10pt; line-height:1.48; }
+.doc.compact h1{ font-size:20pt; margin:7mm 0 1.5mm; }
+.doc.compact h1:first-child{ margin-top:0; }
+.doc.compact h1 + p{ font-size:10.5pt; line-height:1.4; padding-bottom:2.5mm; margin-bottom:4mm; }
+.doc.compact h2{ font-size:12.5pt; margin:5mm 0 1mm; }
+.doc.compact h3{ margin:5mm 0 1.5mm; }
+.doc.compact p{ margin:0 0 2.4mm; }
+.doc.compact ul,.doc.compact ol{ margin-bottom:2.5mm; }
+.doc.compact li{ margin:0.7mm 0; }
+.doc.compact .callout{ padding:4.5mm 6mm; margin:4mm 0; }
+.doc.compact .callout__price{ font-size:18pt; }
+.doc.compact table{ font-size:9pt; margin:3.5mm 0; }
+.doc.compact .tier{ padding:5mm 6mm; margin:4mm 0; }
+.doc.compact blockquote{ margin:3.5mm 0; }
+.doc.compact hr{ margin:5mm 0; }

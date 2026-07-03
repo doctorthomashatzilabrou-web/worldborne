@@ -256,12 +256,14 @@ def build_parts(md_path):
     body = process_blocks(body, md)
     content = enhance_tables(md.reset().convert(body))
 
+    compact = meta.get("density", "").strip().lower() in ("compact", "tight", "dense")
     return {
         "theme": _resolved_theme(),
         "cover": build_cover(meta),
         "content": content,
         "footer": html.escape(meta.get("footer", "Worldborne Medical · Confidential")),
         "title": html.escape(meta.get("title", "Worldborne Medical")),
+        "doc_class": "doc compact" if compact else "doc",
     }
 
 
@@ -273,11 +275,10 @@ def _page(title, css, extra_css, body_html):
 
 def compose_combined(parts):
     """Single self-contained HTML (cover + body). Used for --html output and
-    the no-Playwright fallback. Footer omitted — a fixed footer can overlap
-    dense multi-page content in plain Chromium; the footer is added per-page
-    by Playwright in the primary render path."""
+    the no-library fallback. Footer omitted here — it is stamped per-page onto
+    the body by _stamp_footer in the primary render path."""
     body = (f'<div class="pagebg"></div>{parts["cover"]}'
-            f'<main class="doc">{parts["content"]}</main>')
+            f'<main class="{parts["doc_class"]}">{parts["content"]}</main>')
     return _page(parts["title"], parts["theme"], "", body)
 
 
@@ -288,10 +289,10 @@ def compose_cover(parts):
 
 
 def compose_body(parts):
-    # Body-only doc. The running footer is supplied per-page by Playwright's
-    # footerTemplate (rendered in the page margin), so none is baked in here.
+    # Body-only doc. The running footer is stamped into the page margin by
+    # _stamp_footer after rendering, so none is baked in here.
     body = (f'<div class="pagebg"></div>'
-            f'<main class="doc">{parts["content"]}</main>')
+            f'<main class="{parts["doc_class"]}">{parts["content"]}</main>')
     return _page(parts["title"], parts["theme"], "", body)
 
 

@@ -73,6 +73,16 @@ footer: Worldborne Medical · Confidential — Prepared for Medivant Healthcare
 Every field is optional. Omit them all and you get no cover page — handy for a
 short memo. `footer` is the small line repeated at the bottom of each page.
 
+Add `density: compact` to tighten the type and spacing (without changing the
+look) so a long one-pager — an agenda or brief — fits on fewer pages:
+
+```markdown
+---
+title: Call Agenda
+density: compact
+---
+```
+
 ### Headings & the editorial lede
 
 - `# Heading` — large serif section head. The **first paragraph after it**
