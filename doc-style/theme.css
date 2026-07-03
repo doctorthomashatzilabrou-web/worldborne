@@ -36,12 +36,8 @@ body{
    printed page (fixed inset:0 repeats per page); sits behind the cover. */
 .pagebg{ position:fixed; inset:0; background:var(--paper); z-index:-1; }
 
-/* Running footer — repeats on every printed page (fixed = per-page in print). */
-.runfoot{
-  position:fixed; left:0; right:0; bottom:9mm; text-align:center;
-  font-family:var(--sans); font-size:7.2pt; letter-spacing:.22em;
-  text-transform:uppercase; color:var(--gold); opacity:.8;
-}
+/* The running footer is stamped into each page's bottom margin by build.py
+   (PyMuPDF), not rendered here — that keeps it reliably off the content. */
 
 /* ============================================================
    COVER

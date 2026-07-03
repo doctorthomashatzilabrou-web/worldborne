@@ -273,9 +273,10 @@ def _page(title, css, extra_css, body_html):
 
 def compose_combined(parts):
     """Single self-contained HTML (cover + body). Used for --html output and
-    the no-merge fallback. Running footer omitted here (see render_pdf)."""
+    the no-Playwright fallback. Footer omitted — a fixed footer can overlap
+    dense multi-page content in plain Chromium; the footer is added per-page
+    by Playwright in the primary render path."""
     body = (f'<div class="pagebg"></div>{parts["cover"]}'
-            f'<div class="runfoot">{parts["footer"]}</div>'
             f'<main class="doc">{parts["content"]}</main>')
     return _page(parts["title"], parts["theme"], "", body)
 
@@ -287,9 +288,9 @@ def compose_cover(parts):
 
 
 def compose_body(parts):
-    # Body-only doc: uniform @page margins => fixed footer repeats correctly.
+    # Body-only doc. The running footer is supplied per-page by Playwright's
+    # footerTemplate (rendered in the page margin), so none is baked in here.
     body = (f'<div class="pagebg"></div>'
-            f'<div class="runfoot">{parts["footer"]}</div>'
             f'<main class="doc">{parts["content"]}</main>')
     return _page(parts["title"], parts["theme"], "", body)
 
@@ -344,23 +345,55 @@ def _merge_pdfs(paths, out_pdf):
         return False
 
 
+def _stamp_footer(pdf_path, text):
+    """Draw the running footer into each page's bottom margin with PyMuPDF.
+    Reliable positioning (no HTML fixed-element quirks). No-op without fitz."""
+    try:
+        import fitz
+    except ImportError:
+        return False
+    text = text.upper()
+    doc = fitz.open(pdf_path)
+    gold = (0.722, 0.584, 0.353)
+    for page in doc:
+        # shrink to fit the text column if the footer runs long
+        fs = 7.0
+        avail = page.rect.width - 40
+        while fs > 5 and fitz.get_text_length(text, fontname="helv", fontsize=fs) > avail:
+            fs -= 0.5
+        w = fitz.get_text_length(text, fontname="helv", fontsize=fs)
+        x = max((page.rect.width - w) / 2, 20)
+        y = page.rect.height - 26  # points from the bottom edge (inside margin)
+        page.insert_text((x, y), text, fontname="helv", fontsize=fs, color=gold)
+    doc.saveIncr()
+    doc.close()
+    return True
+
+
 def render_pdf(parts, out_pdf):
-    """Render cover + body separately (correct per-page footer) and merge.
-    Falls back to a single combined render if no PDF-merge library is present."""
+    """Render the cover (full-bleed) and body separately with headless Chromium,
+    stamp the running footer onto the body pages, and merge. Falls back to a
+    single clean render (no footer) if no PDF library is available."""
     chrome = find_chrome()
     if not chrome:
         sys.exit("No Chromium/Chrome found. Set CHROME_BIN, or use --html and print from a browser.")
     with tempfile.TemporaryDirectory() as td:
-        has_cover = bool(parts["cover"])
-        if has_cover:
+        body_pdf = str(Path(td) / "body.pdf")
+        _chrome_print(chrome, compose_body(parts), body_pdf, td, "body")
+        _stamp_footer(body_pdf, parts["footer"])
+        pages = []
+        if parts["cover"]:
             cover_pdf = str(Path(td) / "cover.pdf")
-            body_pdf = str(Path(td) / "body.pdf")
             _chrome_print(chrome, compose_cover(parts), cover_pdf, td, "cover")
-            _chrome_print(chrome, compose_body(parts), body_pdf, td, "body")
-            if _merge_pdfs([cover_pdf, body_pdf], out_pdf):
-                return
-            print("  note: install PyMuPDF or pypdf for the running footer; "
-                  "using single-pass render.", file=sys.stderr)
+            pages.append(cover_pdf)
+        pages.append(body_pdf)
+        if len(pages) == 1:
+            shutil.copyfile(pages[0], out_pdf)
+            return
+        if _merge_pdfs(pages, out_pdf):
+            return
+        print("  note: install PyMuPDF or pypdf for the cover page + footer; "
+              "using single-pass render.", file=sys.stderr)
         _chrome_print(chrome, compose_combined(parts), out_pdf, td, "doc")
 
 
